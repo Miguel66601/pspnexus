@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSP NEXUS</title>
+<link rel="stylesheet" href="ESTLOS/herramientasstyles.css">
+<link rel="icon" type="image/x-icon" href="img/ICONO.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- FONDO -->
+  <div class="background">
+    <span class="symbol" style="left:10%; animation-duration:18s;">✖</span>
+    <span class="symbol" style="left:25%; animation-duration:22s;">○</span>
+    <span class="symbol" style="left:40%; animation-duration:16s;">△</span>
+    <span class="symbol" style="left:55%; animation-duration:20s;">□</span>
+    <span class="symbol" style="left:70%; animation-duration:24s;">✖</span>
+    <span class="symbol" style="left:85%; animation-duration:19s;">○</span>
+  </div>
+
+<header>
+  <div class="logo-base"></div>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="juegos.html">Juegos</a>
+  <a href="proyectos.html">Mods</a>
+  <a href="herramientas.html">Herramientas</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<main>
+<h2>HERRAMIENTAS DE MODIFICACIÓN</h2>
+<P>En PSP Nexus ponemos a tu disposición una selección de herramientas diseñadas para personalizar y mejorar tu experiencia de juego 
+  en PSSP.</P>
+<p>Estas utilidades te permiten modificar distintos aspectos de los juegos, 
+  desde gráficos y texturas hasta partidas guardadas y configuraciones avanzadas.</p>
+
+<div class="catalogo">
+
+<!--HERRAMIENTAS -->
+<div class="catalogo-item">
+  <h3>Pack Herramientas MP4 a PMF</h3>
+  <div class="botones">
+    <a href="https://www.mediafire.com/file/ikdltfqmyty5int/PROGRAMAS+TITATRON.zip/file" target="_blank" class="btn-descargar">Descargar</a>
+    <a href="#" class="btn-desc" onclick="openModal('img/HRR1.jpg','Pack Herramientas MP4 a PMF','Convierte videos MP4 a PMF para PSP','https://www.mediafire.com/file/ikdltfqmyty5int/PROGRAMAS+TITATRON.zip/file')">Descripción</a>
+  </div>
+</div>
+
+<div class="catalogo-item">
+  <h3>KRITA</h3>
+  <div class="botones">
+    <a href="https://krita.org/es/download/" target="_blank" class="btn-descargar">Descargar</a>
+    <a href="#" class="btn-desc" onclick="openModal('img/HRR2.jpg','KRITA','Herramienta para edición de imágenes y texturas','https://krita.org/es/download/')">Descripción</a>
+  </div>
+</div>
+
+<div class="catalogo-item">
+  <h3>BLENDER</h3>
+  <div class="botones">
+    <a href="https://www.blender.org/download/" target="_blank" class="btn-descargar">Descargar</a>
+    <a href="#" class="btn-desc" onclick="openModal('img/HRR3.jpg','BLENDER','Herramienta para crear modelos 3D','https://www.blender.org/download/')">Descripción</a>
+  </div>
+</div>
+
+<div class="catalogo-item">
+  <h3>PAC EDITOR</h3>
+  <div class="botones">
+    <a href="https://drive.google.com/file/d/1zeh45hfpa-gg-karQl_QCWxRDfQcaEck/view" target="_blank" class="btn-descargar">Descargar</a>
+    <a href="#" class="btn-desc" onclick="openModal('img/HRR4.jpg','PAC EDITOR','Editor de archivos de juegos para reemplazar personajes','https://drive.google.com/file/d/1zeh45hfpa-gg-karQl_QCWxRDfQcaEck/view')">Descripción</a>
+  </div>
+</div>
+<div class="catalogo-item"> <h3>HxD</h3> <div class="botones"> <a href="https://www.mediafire.com/file/o0g3ehhrpbl8ror/HxDSetup.exe/file" target="_blank" class="btn-descargar">Descargar</a> <a href="#" class="btn-desc" onclick="openModal('img/HRR5.jpg','HxD','Editor hexadecimal para modificar archivos binarios','https://www.mediafire.com/file/o0g3ehhrpbl8ror/HxDSetup.exe/file')"> Descripción</a> </div> </div> <div class="catalogo-item"> <h3>SAVE EDITOR</h3> <div class="botones"> <a href="https://drive.google.com/file/d/1OpEqWWcZqkPmM5jkIg91xx_3llnVjK4t/view" target="_blank" class="btn-descargar">Descargar</a> <a href="#" class="btn-desc" onclick="openModal('img/HRR6.jpe','SAVE EDITOR','Editor de archivos de guardado para juegos de PS2,PSP tambien permite modificar nombres de personajes del juego atraves del autoguardado del juego','https://drive.google.com/file/d/1OpEqWWcZqkPmM5jkIg91xx_3llnVjK4t/view')"> Descripción</a> </div> </div>
+
+</div>
+</main>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <img id="modalImg" alt="Herramienta">
+    <div class="modal-text">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <a id="modalDownload" class="btn-descargar" target="_blank">Descargar</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+<p>© 2026 - PSP NEXUS</p>
+</footer>
+
+<script>
+function openModal(img,title,text,link){
+  const modal = document.getElementById("modal");
+  modal.style.display="flex";
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = text;
+  document.getElementById("modalDownload").href = link;
+}
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>

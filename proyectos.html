@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSP NEXUS</title>
+<link rel="stylesheet" href="ESTLOS/modsstyles.css">
+<link rel="icon" type="image/x-icon" href="img/ICONO.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- FONDO ANIMADO -->
+<div class="background">
+  <span class="symbol" style="left:10%;animation-duration:18s;">✖</span>
+  <span class="symbol" style="left:25%;animation-duration:22s;">○</span>
+  <span class="symbol" style="left:40%;animation-duration:16s;">△</span>
+  <span class="symbol" style="left:55%;animation-duration:20s;">□</span>
+  <span class="symbol" style="left:70%;animation-duration:24s;">✖</span>
+  <span class="symbol" style="left:85%;animation-duration:19s;">○</span>
+</div>
+
+<!-- HEADER CON GLITCH -->
+<header>
+  <div class="logo-base"></div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="juegos.html">Juegos</a>
+  <a href="proyectos.html">Mods</a>
+  <a href="herramientas.html">Herramientas</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <h2>MODS</h2>
+
+  <p>En PSP Nexus encontrarás mods de juegos ya listos para descargar,
+     creados para que tu experiencia de juego sea más intensa, divertida y personalizada.</p>
+  <p>📥 No esperes más! Descarga tus mods favoritos, aplica los cambios y siente como la PSP cobra vida con cada juego.</p>
+  <p>🎮 En PSP Nexus, cada mod es una nueva aventura lista para ti.</p>
+
+</main>
+  <div class="catalogo">
+
+    <!-- JUEGO 1 -->
+    <div class="catalogo-item">
+      <img src="img/MOD1.jpg" alt="eFootball PES 2023">
+      <h3>eFootball PES 2023 LITE PSP EDITION</h3>
+      <a href="https://www.mediafire.com/file/ub3eyhj7wtqfqyi/Bomba+Patch+Canal+do+LZ+e+F+Lucas+Jogo+gr%C3%A1tis.iso/file" target="_blank" class="btn btn-download">Descargar</a>
+      <a href="#" class="btn btn-info"
+         onclick="openModal('img/MOD1.jpg','eFootball PES 2023 LITE PSP EDITION','La eFootball PES 2023 LITE PSP Edition es un mod creado por Chelito19 que actualiza el PES 2014 con la temporada 2023/2024.')">
+         Ver más
+      </a>
+    </div>
+
+    <!-- JUEGO 2 WWE -->
+    <div class="catalogo-item">
+      <img src="img/MOD2.jpg" alt="WWE 2K25 PSP EDITION">
+      <h3>WWE 2K25 PSP EDITION</h3>
+      <a href="#" class="btn btn-info"
+         onclick="openModal(
+           'img/MOD2.jpg',
+           'WWE 2K25 PSP EDITION',
+           'WWE 2K25 PSP EDITION es un mod de WWE SmackDown vs. Raw 2007. Incluye roster actualizado, arenas nuevas y texturas HD. Para que funcione correctamente debes descargar ambos archivos.',
+           'https://www.mediafire.com/file/9d3oby6qmenrwei/WWE_2K25.rar/file',
+           'https://www.mediafire.com/file/bs69nypy1uliqqh/PSP_07.rar/file'
+         )">
+         Ver más
+      </a>
+    </div>
+
+    <!-- JUEGO 3 -->
+    <div class="catalogo-item">
+      <img src="img/MOD3.jpg" alt="Dragon Ball Sparking Zero">
+      <h3>DRAGON BALL: SPARKING ZERO</h3>
+      <a href="https://www.mediafire.com/file/ynh1we3korascai/003_-_Dragon_Ball_-_Sparking_Zero%2528USA%2529_%2528En%252CFr%252CEs%2529.zip/file" target="_blank" class="btn btn-download">Descargar</a>
+      <a href="#" class="btn btn-info"
+         onclick="openModal('img/MOD3.jpg','DRAGON BALL: SPARKING ZERO','Juego de lucha basado en Dragon Ball con gran cantidad de personajes y escenarios.')">
+         Ver más
+      </a>
+    </div>
+
+    <!-- JUEGO 4 -->
+    <div class="catalogo-item">
+      <img src="img/MOD4.jpg" alt="Super Mario 64 PSP Edition">
+      <h3>SUPER MARIO 64 PSP EDITION</h3>
+      <a href="https://www.mediafire.com/file/nvyt4rbnablogk6/EBOOT.PBP/file" target="_blank" class="btn btn-download">Descargar</a>
+      <a href="#" class="btn btn-info"
+         onclick="openModal('img/MOD4.jpg','SUPER MARIO 64','Adaptación de Super Mario 64 para PSP con misiones y mundos clásicos.')">
+         Ver más
+      </a>
+    </div>
+
+    <!-- JUEGO 5 -->
+    <div class="catalogo-item">
+      <img src="img/MOD5.jpg" alt="Cuphead Portable PSP">
+      <h3>Cuphead Portable PSP</h3>
+      <a href="https://www.mediafire.com/file/tf8bocojfzthzh0/cuphead-alpha0-8-2.iso/file" target="_blank" class="btn btn-download">Descargar</a>
+      <a href="#" class="btn btn-info"
+         onclick="openModal('img/MOD5.jpg','Cuphead Portable PSP','Adaptación del juego Cuphead optimizada para PSP.')">
+         Ver más
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 - PSP NEXUS</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="gameModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">✖</span>
+    <img id="modalImg" alt="Juego">
+    <div class="modal-text">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+
+      <!-- BOTONES EXTRA WWE -->
+      <div class="modal-extra-buttons" id="extraButtons">
+        <a id="btnIso" class="btn-iso" target="_blank">Descargar ISO</a>
+        <a id="btnTexturas" class="btn-texturas" target="_blank">Descargar Texturas</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+function openModal(img, title, desc, iso = null, textures = null) {
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = desc;
+
+  const extras = document.getElementById("extraButtons");
+
+  if (iso && textures) {
+    document.getElementById("btnIso").href = iso;
+    document.getElementById("btnTexturas").href = textures;
+    extras.style.display = "flex";
+  } else {
+    extras.style.display = "none";
+  }
+
+  document.getElementById("gameModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("gameModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
