@@ -1,0 +1,215 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+  background: #050505;
+  color: #eaeaea;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ================= FONDO ANIMADO ================= */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.symbol {
+  position: absolute;
+  top: -10%;
+  font-size: 28px;
+  color: rgba(255,215,0,0.15);
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(120vh) rotate(0deg); opacity: 0; }
+  to { transform: translateY(-130vh) rotate(360deg); opacity: 1; }
+}
+
+/* ================= HEADER GLITCH ================= */
+header {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.logo-base {
+  background: url("../img/LOGO.png") center/70% no-repeat;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/LOGO.png") center/70% no-repeat;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  z-index: 2;
+}
+
+header::before {
+  animation: glitch1 3s infinite steps(1);
+  filter: hue-rotate(20deg);
+}
+
+header::after {
+  animation: glitch2 2.5s infinite steps(1);
+  filter: hue-rotate(-25deg);
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanmove 6s linear infinite;
+  z-index: 4;
+}
+
+@keyframes glitch1 {
+  20% { transform: translate(-6px,2px); }
+  40% { transform: translate(6px,-2px); }
+}
+
+@keyframes glitch2 {
+  25% { transform: translate(8px,-1px); }
+  50% { transform: translate(-8px,2px); }
+}
+
+@keyframes scanmove {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+/* ================= NAV ================= */
+nav {
+  background: #000;
+  border-top: 2px solid #ffd700;
+  border-bottom: 2px solid #ffd700;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  z-index: 5;
+}
+
+nav a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #ffd700;
+}
+
+/* ================= MAIN ================= */
+main {
+  flex: 1;
+  text-align: center;
+  padding: 50px 20px;
+  z-index: 2;
+}
+
+main h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+/* ================= REDES ================= */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: transform 0.3s;
+}
+
+.social-btn:hover {
+  transform: scale(1.2);
+}
+
+.facebook { background: #3b5998; }
+.youtube { background: #ff0000; }
+.instagram { background: #e1306c; }
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
+
+/* ================= FORM ================= */
+.form-contacto {
+  max-width: 420px;
+  margin: 40px auto;
+  background: rgba(20,20,20,0.85);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255,215,0,0.3);
+}
+
+.form-contacto h3 {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.form-contacto input,
+.form-contacto select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
+
+.form-contacto button {
+  width: 100%;
+  padding: 12px;
+  background: #ffd700;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-contacto button:hover {
+  background: #ffae00;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #000;
+  color: #ffd700;
+  text-align: center;
+  padding: 15px;
+  border-top: 2px solid #ffd700;
+}

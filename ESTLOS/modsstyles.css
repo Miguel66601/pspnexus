@@ -1,0 +1,294 @@
+/* ==================== RESET ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ==================== BODY ==================== */
+body {
+  background: #050505;
+  color: #eaeaea;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==================== FONDO ANIMADO ==================== */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.symbol {
+  position: absolute;
+  top: -10%;
+  font-size: 38px;
+  color: rgba(255, 215, 0, 0.15);
+  animation: floatSymbols linear infinite;
+}
+
+@keyframes floatSymbols {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+
+/* ==================== HEADER GLITCH ==================== */
+header {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+header .logo-base {
+  background-image: url("../img/LOGO.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% auto;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/LOGO.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% auto;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  z-index: 2;
+}
+
+header::before { animation: glitch1 3s infinite steps(1); filter: hue-rotate(15deg); }
+header::after { animation: glitch2 2.5s infinite steps(1); filter: hue-rotate(-20deg); }
+
+@keyframes glitch1 {
+  0%, 40%, 100% { transform: translate(0); }
+  10% { transform: translate(-5px, 2px); }
+  20% { transform: translate(5px, -2px); }
+  30% { transform: translate(-8px, 1px); }
+}
+
+@keyframes glitch2 {
+  0%, 50%, 100% { transform: translate(0); }
+  15% { transform: translate(6px, -1px); }
+  25% { transform: translate(-6px, 2px); }
+  35% { transform: translate(10px, 0); }
+}
+
+/* ==================== NAV ==================== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 18px 10px;
+  background: #000;
+  border-top: 2px solid #ffd700;
+  border-bottom: 2px solid #ffd700;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover { color: #fff; text-shadow: 0 0 10px #ffd700; }
+
+/* ==================== MAIN ==================== */
+main {
+  text-align: center;
+  padding: 60px 20px;
+  flex: 1;
+}
+
+/* ==================== CATALOGO ==================== */
+.catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.catalogo-item {
+  background: rgba(50,50,50,0.85);
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.catalogo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #FFD700;
+}
+
+.catalogo-item img {
+  width: 100%;
+  border-radius: 10px;
+  transition: box-shadow .3s;
+}
+
+.catalogo-item img:hover {
+  box-shadow: 0 0 10px #FFD700;
+}
+
+.catalogo-item h3 {
+  font-size: 16px;
+  color: #ffd700;
+  margin-top: 8px;
+}
+
+/* ==================== BOTONES ==================== */
+.btn {
+  display: block;
+  margin: 6px auto;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-download {
+  background: #ffd700;
+  color: black;
+}
+
+.btn-download:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ffd700;
+}
+
+.btn-info {
+  background: #00bcd4;
+  color: black;
+}
+
+.btn-info:hover {
+  background: #26d9f2;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #26d9f2;
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #1c1c1c;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  transform: scale(0.7);
+  opacity: 0;
+  animation: pspOpen .45s ease forwards;
+}
+
+@keyframes pspOpen {
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content img {
+  width: 40%;
+  border-radius: 10px;
+}
+
+.modal-text {
+  width: 60%;
+  text-align: left;
+}
+
+.modal-text h3 {
+  color: #ffd700;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+/* BOTONES EXTRA WWE */
+.modal-extra-buttons {
+  margin-top: 15px;
+  display: none;
+  gap: 10px;
+}
+
+.modal-extra-buttons a {
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-iso {
+  background: #FFD700;
+  color: black;
+}
+
+.btn-texturas {
+  background: #00bcd4;
+  color: black;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  background: rgba(30,30,30,0.95);
+  text-align: center;
+  padding: 15px;
+  color: #ffd700;
+  border-top: 2px solid #ffd700;
+}
+.catalogo {
+  margin-bottom: 40px; /* Ajusta este valor según el espacio que quieras */
+}
+h2 {
+    font-family: 'Press Start 2P', cursive; /* Fuente pixelada real */
+    color: #FFFF00;                         /* Amarillo vibrante Minecraft */
+    font-size: 48px;
+    text-align: center;
+    
+    /* Renderizado para evitar que el navegador suavice los bordes */
+    image-rendering: pixelated;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Borde pixelado (Efecto de sombra sólida) */
+    text-shadow: 
+        4px 4px 0px #000000; /* Sombra negra clásica de los menús de Minecraft */
+}
+

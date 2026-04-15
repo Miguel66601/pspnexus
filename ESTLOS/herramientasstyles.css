@@ -1,0 +1,237 @@
+:root {
+  --fuego-color: #FFD700;
+  --fuego-brillo: #ffaa00;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+  background: #050505;
+  color: #eaeaea;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ================= FONDO ANIMADO ================= */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.symbol {
+  position: absolute;
+  top: -10%;
+  font-size: 28px;
+  color: rgba(255,215,0,0.15);
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(120vh) rotate(0deg); opacity: 0; }
+  to { transform: translateY(-130vh) rotate(360deg); opacity: 1; }
+}
+
+/* ================= HEADER GLITCH ================= */
+header {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.logo-base {
+  background: url("../img/LOGO.png") center/70% no-repeat;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/LOGO.png") center/70% no-repeat;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  z-index: 2;
+}
+
+header::before { animation: glitch1 3s infinite steps(1); filter: hue-rotate(20deg); }
+header::after { animation: glitch2 2.5s infinite steps(1); filter: hue-rotate(-25deg); }
+
+@keyframes glitch1 { 20% { transform: translate(-6px,2px); } 40% { transform: translate(6px,-2px); } }
+@keyframes glitch2 { 25% { transform: translate(8px,-1px); } 50% { transform: translate(-8px,2px); } }
+
+/* ================= NAV ================= */
+nav {
+  background: #000;
+  border-top: 2px solid var(--fuego-color);
+  border-bottom: 2px solid var(--fuego-color);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  z-index: 5;
+  position: relative;
+}
+
+nav a {
+  color: var(--fuego-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--fuego-color);
+}
+
+/* ================= MAIN ================= */
+main {
+  flex: 1;
+  text-align: center;
+  padding: 50px 20px;
+  z-index: 2;
+}
+
+main h2 {
+  color: var(--fuego-color);
+  margin-bottom: 20px;
+}
+
+/* ================= CATALOGO ================= */
+.catalogo {
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.catalogo-item {
+  background: rgba(50,50,50,0.85);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.catalogo-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px var(--fuego-color);
+}
+
+.catalogo-item h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.botones a {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+/* BOTONES DESCARGAR / DESCRIPCIÓN CON GLOW */
+.btn-descargar {
+  background: var(--fuego-color);
+  color: black;
+  box-shadow: 0 0 5px var(--fuego-color);
+}
+
+.btn-descargar:hover {
+  background: var(--fuego-brillo);
+  box-shadow: 0 0 15px var(--fuego-brillo);
+}
+
+.btn-desc {
+  background: #00bcd4;
+  color: black;
+  box-shadow: 0 0 5px #00bcd4;
+}
+
+.btn-desc:hover {
+  background: #26d9f2;
+  box-shadow: 0 0 15px #26d9f2;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #1c1c1c;
+  width: 80%;
+  max-width: 700px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  transform: scale(0.7);
+  opacity: 0;
+  animation: modalOpen .45s ease forwards;
+}
+
+@keyframes modalOpen { to { transform: scale(1); opacity: 1; } }
+
+.modal img {
+  width: 40%;
+  border-radius: 10px;
+}
+
+.modal-text {
+  width: 60%;
+  text-align: left;
+}
+
+.modal-text h3 {
+  color: var(--fuego-color);
+  margin-top: 0;
+}
+
+.modal-text p {
+  margin-top: 10px;
+}
+
+.modal-text .btn-descargar {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #000;
+  color: var(--fuego-color);
+  text-align: center;
+  padding: 15px;
+  border-top: 2px solid var(--fuego-color);
+}
